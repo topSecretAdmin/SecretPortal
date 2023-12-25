@@ -1,6 +1,14 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+session = requests.Session()
+retry = Retry(connect=3, backoff_factor=0.5)
+adapter = HTTPAdapter(max_retries=retry)
+session.mount('http://', adapter)
+session.mount('https://', adapter)
 
 class InfoBaza(models.Model):
     _inherit = 'crm.lead'
@@ -23,4 +31,4 @@ class InfoBaza(models.Model):
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
-        return requests.post(api_url, headers=headers, json=payload)
+        return session.post(api_url, headers=headers, json=payload)
