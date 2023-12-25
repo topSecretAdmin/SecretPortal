@@ -20,7 +20,7 @@ class InfoBaza(models.Model):
     def action_send_inn(self):
         inn_value = self.info_baza
         lead_id = self.id
-        api_url = 'http://127.0.0.1:5001/user'
+        api_url = 'https://odoo-app-d93b8152d539.herokuapp.com/user'
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
