@@ -15,12 +15,12 @@ class InfoBaza(models.Model):
                 if not record.info_baza.isdigit():
                     raise ValidationError('ІПН має складатись з цифр')
                 if len(record.info_baza) != 10:
-                    raise ValidationError('іПН має складатись з 10 цифр')
+                    raise ValidationError('ІПН має складатись з 10 цифр')
 
     def action_send_inn(self):
         inn_value = self.info_baza
         lead_id = self.id
-        api_url = 'https://af88-194-156-250-69.ngrok-free.app/user'
+        api_url = 'https://localhost:5001/user'
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
