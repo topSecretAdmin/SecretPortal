@@ -9,10 +9,12 @@
                 <notebook position="inside">
                     <page string="Інформаційна анкета">
                         <group>
-                            <xpath expr="//field[@name='partner_id']" position="after">
-                                <field name="info_baza"/>
-                                <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
-                            </xpath>
+                            <field name="info_baza"/>
+                            <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
+<!--                            <xpath expr="//field[@name='partner_id']" position="after">-->
+<!--                                <field name="info_baza"/>-->
+<!--                                <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>-->
+<!--                            </xpath>-->
                         </group>
                     </page>
                 </notebook>
