@@ -7,7 +7,7 @@
     'author': 'Lorn',
     'company': 'Zrobleno Solutions',
     'website': 'https://www.odoo.com',
-    'depends': ['crm'],
+    'depends': ['crm, web_studio'],
     'data': [
         'views/inn_view.xml'
     ],
