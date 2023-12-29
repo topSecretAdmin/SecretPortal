@@ -7,10 +7,16 @@
             <field name="inherit_id" ref="studio_customization.odoo_studio_crm_lead_a85f45dc-e698-4baf-8c7c-11a8bf833729"/>
 <!--            <field name="inherit_id" ref="crm.crm_lead_view_form"/>-->
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="info_baza"/>
-                    <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
-                </xpath>
+                <notebook position="inside">
+                    <page string="Інформаційна анкета">
+                        <group>
+                            <xpath expr="//field[@name='partner_id']" position="after">
+                                <field name="info_baza"/>
+                                <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
+                            </xpath>
+                        </group>
+                    </page>
+                </notebook>
             </field>
         </record>
     </data>
