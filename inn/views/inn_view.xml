@@ -4,20 +4,22 @@
         <record id="crm_lead_view_form_inherit" model="ir.ui.view">
             <field name="name">crm.lead.inherit</field>
             <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+<!--            <field name="inherit_id" ref="crm.crm_lead_view_form"/>-->
+            <field name="inherit_id" ref="studio_customization.odoo_studio_crm_lead"/>
             <field name="arch" type="xml">
-                <notebook position="inside">
-                    <page string="Інформаційна анкета">
-                        <group>
-                            <field name="info_baza"/>
-                            <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
-<!--                            <xpath expr="//field[@name='partner_id']" position="after">-->
-<!--                                <field name="info_baza"/>-->
-<!--                                <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>-->
-<!--                            </xpath>-->
-                        </group>
-                    </page>
-                </notebook>
+                <xpath expr="//field[@name='x_studio_custom_field']" position="after">
+                    <field name="info_baza"/>
+                    <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
+                </xpath>
+
+<!--                <notebook position="inside">-->
+<!--                    <page string="Інформаційна анкета">-->
+<!--                        <group>-->
+<!--                            <field name="info_baza"/>-->
+<!--                            <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>-->
+<!--                        </group>-->
+<!--                    </page>-->
+<!--                </notebook>-->
             </field>
         </record>
     </data>
