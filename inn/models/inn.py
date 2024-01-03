@@ -6,7 +6,7 @@ import requests
 class InfoBaza(models.Model):
     _inherit = 'crm.lead'
 
-    info_baza = fields.Char(string='InfoBazaS', index=True)
+    info_baza = fields.Char(string='InfoBaza', index=True)
 
     @api.constrains('info_baza')
     def _check_info_baza(self):
