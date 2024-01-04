@@ -1,7 +1,7 @@
 {
     'name': 'Inn',
     'version': '1.0.0',
-    'summary': 'Find info by inn',
+    'summary': 'Find info by INN',
     'description': """",
     Long Description of your modules""",
     'author': 'Lorn',
