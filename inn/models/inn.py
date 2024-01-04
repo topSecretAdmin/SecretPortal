@@ -10,6 +10,7 @@ class InfoBaza(models.Model):
 
     @api.constrains('info_baza')
     def _check_info_baza(self):
+
         for record in self:
             if record.info_baza:
                 if not record.info_baza.isdigit():
@@ -24,4 +25,9 @@ class InfoBaza(models.Model):
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
-        return requests.post(api_url, headers=headers, json=payload)
+        response = requests.post(api_url, headers=headers, json=payload)
+
+        if response.status_code == 200:
+            return
+        else:
+            raise ValidationError('За цим ІПН даних не знайдено')
