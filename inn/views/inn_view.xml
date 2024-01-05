@@ -7,8 +7,10 @@
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='tag_ids']" position="after">
-                    <field name="info_baza"/>
-                    <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
+                    <group>
+                        <field name="info_baza"/>
+                        <button name="action_send_inn" string="Пошук" type="object" class="oe_highlight"/>
+                    </group>
                 </xpath>
 
 <!--                <notebook position="inside">-->
