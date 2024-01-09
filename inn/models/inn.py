@@ -6,7 +6,7 @@ import requests
 class InfoBaza(models.Model):
     _inherit = 'crm.lead'
 
-    info_baza = fields.Char(string='InfoBazaS', index=True)
+    info_baza = fields.Char(string='InfoBaza', index=True)
 
     @api.constrains('info_baza')
     def _check_info_baza(self):
@@ -24,11 +24,9 @@ class InfoBaza(models.Model):
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
-        return requests.post(api_url, headers=headers, json=payload)
+        response = requests.post(api_url, headers=headers, json=payload)
 
-        # response = requests.post(api_url, headers=headers, json=payload)
-        #
-        # if response.status_code == 200:
-        #     return
-        # else:
-        #     raise ValidationError('За цим ІПН даних не знайдено')
+        if response.status_code == 200:
+            return
+        else:
+            raise ValidationError('За цим ІПН даних не знайдено')
