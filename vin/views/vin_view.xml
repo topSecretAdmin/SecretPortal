@@ -9,6 +9,7 @@
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="avtovin"/>
                     <button name="action_send_vin" string="Пошук" type="object" class="oe_highlight"/>
+                    <div></div>
                 </xpath>
             </field>
         </record>
