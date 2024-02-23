@@ -3,17 +3,19 @@ from odoo.exceptions import ValidationError
 import requests
 
 
-class InfoBaza(models.Model):
+class Avtovin(models.Model):
     _inherit = 'crm.lead'
 
     avtovin = fields.Char(string='AutoVIN', index=True)
 
     @api.constrains('avtovin')
-    def _check_info_baza(self):
+    def _check_avtovin(self):
         for record in self:
             if record.avtovin:
+                if len(record.avtovin) != 0:
+                    raise ValidationError('VIN не має бути порожнім')
 
-    def action_send_inn(self):
+    def action_send_vin(self):
         vin_value = self.avtovin
         lead_id = self.id
         api_url = 'https://2d47-193-93-219-131.ngrok-free.app/avtovin'

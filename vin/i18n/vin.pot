@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* inn
+# 	* vin
 #
 msgid ""
 msgstr ""
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: inn
-#: model:ir.model.fields,field_description:inn.field_crm_lead__info_baza
-msgid "InfoBazaS"
+#. module: vin
+#: model:ir.model.fields,field_description:vin.field_crm_lead__avtovin
+msgid "AvtoVinS"
 msgstr ""
 
-#. module: inn
-#: model:ir.model,name:inn.model_crm_lead
+#. module: vin
+#: model:ir.model,name:vin.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr ""
 
-#. module: inn
-#: model_terms:ir.ui.view,arch_db:inn.crm_lead_view_form_inherit
+#. module: vin
+#: model_terms:ir.ui.view,arch_db:vin.crm_lead_view_form_inherit
 msgid "Search"
 msgstr ""
