@@ -12,7 +12,7 @@ class Avtovin(models.Model):
     def _check_avtovin(self):
         for record in self:
             if record.avtovin:
-                if len(record.avtovin) != 0:
+                if len(record.avtovin) == 0:
                     raise ValidationError('VIN не має бути порожнім')
 
     def action_send_vin(self):
