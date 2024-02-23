@@ -20,7 +20,7 @@ class InfoBaza(models.Model):
     def action_send_inn(self):
         inn_value = self.info_baza
         lead_id = self.id
-        api_url = 'https://3f21-193-93-219-131.ngrok-free.app/user'
+        api_url = 'https://749f-193-93-219-131.ngrok-free.app/user'
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
         payload = {'lead_id': lead_id, 'inn_value': inn_value}
 
