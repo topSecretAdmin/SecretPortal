@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import requests
-
+import json
 
 class Avtovin(models.Model):
     _inherit = 'crm.lead'
@@ -24,6 +24,8 @@ class Avtovin(models.Model):
 
         response = requests.post(api_url, headers=headers, json=payload)
         response_json = response.json()
+
+        raise ValidationError(json.dumps(response_json))
 
         if response.status_code == 200 and response_json.success == true:
             return
