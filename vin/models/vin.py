@@ -25,9 +25,9 @@ class Avtovin(models.Model):
         response = requests.post(api_url, headers=headers, json=payload)
         response_json = response.json()
 
-        if response.status_code == 200 and response_json.status == true:
+        if response.status_code == 200 and response_json.success == true:
             return
-        elif response_json.status == false:
+        elif response_json.success == false:
             raise ValidationError('Помилка: ' + response_json.error)
         else:
             raise ValidationError('Невідома помилка')
