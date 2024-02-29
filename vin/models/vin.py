@@ -24,7 +24,7 @@ class Avtovin(models.Model):
 
         response = requests.post(api_url, headers=headers, json=payload)
 
-        raise ValidationError(response)
+        raise ValidationError('Response' + response.text)
 
         response_json = response.json()
 
