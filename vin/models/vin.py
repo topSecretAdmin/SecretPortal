@@ -23,8 +23,11 @@ class Avtovin(models.Model):
         payload = {'lead_id': lead_id, 'vin_value': vin_value}
 
         response = requests.post(api_url, headers=headers, json=payload)
+        responseJson = response.json()
 
-        if response.status_code == 200:
+        if response.status_code == 200 and responseJson.status == true:
             return
+        elif responseJson.status == false:
+            raise ValidationError('Помилка: ' + responseJson.error)
         else:
             raise ValidationError('За цим VIN даних не знайдено')
