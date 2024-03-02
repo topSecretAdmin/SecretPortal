@@ -9,7 +9,7 @@
     'website': '',
     'depends': ['crm'],
     'data': [
-        'views/inn_view.xml'
+        'views/inn_view.xml',
     ],
     'license': 'LGPL-3',
 }

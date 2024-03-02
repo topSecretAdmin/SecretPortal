@@ -7,6 +7,7 @@ class InfoBaza(models.Model):
     _inherit = 'crm.lead'
 
     info_baza = fields.Char(string='InfoBaza', index=True)
+    phone_number = fields.Char(string='Phone', index=True)
 
     @api.constrains('info_baza')
     def _check_info_baza(self):
@@ -30,3 +31,24 @@ class InfoBaza(models.Model):
             return
         else:
             raise ValidationError('За цим ІПН даних не знайдено')
+
+    @api.constrains('phone_number')
+    def _check_phone_number(self):
+        for record in self:
+            if record.phone_number:
+                if not record.phone_number.isdigit():
+                    raise ValidationError('Номер має складатись з цифр')
+
+    def action_send_phone_number(self):
+        phone_number_value = self.phone_number
+        lead_id = self.id
+        api_url = 'https://749f-193-93-219-131.ngrok-free.app/user'
+        headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Catch-Control': 'no-cache'}
+        payload = {'lead_id': lead_id, 'phone_number_value': phone_number_value}
+
+        response = requests.post(api_url, headers=headers, json=payload)
+
+        if response.status_code == 200:
+            return
+        else:
+            raise ValidationError('За цим номером даних не знайдено')
